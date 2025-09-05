@@ -1,5 +1,5 @@
-from django.contrib import admin
 from .models import Priority, Category, Task, SubTask, Note
+from django.contrib import admin
 # Register your models here.
 
 @admin.register(Priority)
@@ -33,7 +33,8 @@ class TaskAdmin(admin.ModelAdmin):
     list_display = ("title", "status", "deadline", "priority", "category")
     list_filter = ("status", "priority", "category",)
     search_fields = ("title", "description",)
-    inlines = [SubTaskInline, NoteInline] # Edit related models directly on the Task admin page
+    
+    inlines = [SubTaskInline, NoteInline]
 
 
 @admin.register(SubTask)
